@@ -83,6 +83,22 @@ struct TemplateDetailView: View {
 
     var body: some View {
         List {
+            Section {
+                Button {
+                    let run = ChecklistRun(templateId: template.id, title: template.name, items: template.items.sorted(by: { $0.sortOrder < $1.sortOrder }).map {
+                        ChecklistRunItem(templateItemId: $0.id, title: $0.title, notes: $0.notes, isChecked: false, sortOrder: $0.sortOrder)
+                    })
+                    context.insert(run)
+                    try? context.save()
+                    activeRun = run
+                } label: {
+                    Label("Start Run", systemImage: "play.circle.fill")
+                        .font(.headline)
+                }
+                .buttonStyle(.borderedProminent)
+                .accessibilityIdentifier("StartRunButton")
+            }
+            
             ForEach(template.items.sorted(by: { $0.sortOrder < $1.sortOrder })) { item in
                 VStack(alignment: .leading, spacing: 4) {
                     Text(item.title)
@@ -105,6 +121,7 @@ struct TemplateDetailView: View {
                     try? context.save()
                     activeRun = run
                 }
+                .accessibilityIdentifier("RunTemplateButton")
                 Button("Edit") { showingEdit = true }
             }
         }

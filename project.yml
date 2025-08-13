@@ -30,6 +30,32 @@ targets:
         MARKETING_VERSION: 1.0.0
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: ""
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     scheme:
-      testTargets: []
+      testTargets:
+        - AllMyChecklistsUITests
+  AllMyChecklistsTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: AllMyChecklistsTests
+    dependencies:
+      - target: AllMyChecklists
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.neonnubula.allmychecklists.tests
+  AllMyChecklistsUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: AllMyChecklistsUITests
+    dependencies:
+      - target: AllMyChecklists
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.neonnubula.allmychecklists.uitests
 

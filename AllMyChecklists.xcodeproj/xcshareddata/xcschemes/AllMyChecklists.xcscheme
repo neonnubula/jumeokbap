@@ -39,6 +39,17 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BB161DCE020B3100199441CF"
+               BuildableName = "AllMyChecklistsUITests.xctest"
+               BlueprintName = "AllMyChecklistsUITests"
+               ReferencedContainer = "container:AllMyChecklists.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <CommandLineArguments>
       </CommandLineArguments>

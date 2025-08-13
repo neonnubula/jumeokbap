@@ -4,6 +4,7 @@ import SwiftData
 struct RunChecklistView: View {
     @Environment(\.modelContext) private var context
     @EnvironmentObject private var haptics: HapticsManager
+    @Environment(\.dismiss) private var dismiss
 
     @State private var run: ChecklistRun
 
@@ -75,6 +76,7 @@ struct RunChecklistView: View {
         run.completedAt = .now
         try? context.save()
         haptics.success()
+        dismiss()
     }
 }
 

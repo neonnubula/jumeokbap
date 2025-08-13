@@ -6,6 +6,8 @@
     <string>All My Checklists</string>
     <key>CFBundleDisplayName</key>
     <string>All My Checklists</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
     <key>CFBundleIdentifier</key>
     <string>com.neonnubula.allmychecklists</string>
     <key>CFBundleShortVersionString</key>

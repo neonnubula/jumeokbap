@@ -78,6 +78,7 @@ struct HomeView: View {
 struct TemplateDetailView: View {
     @Environment(\.modelContext) private var context
     @State private var showingEdit: Bool = false
+    @State private var activeRun: ChecklistRun?
     var template: ChecklistTemplate
 
     var body: some View {
@@ -102,12 +103,16 @@ struct TemplateDetailView: View {
                     })
                     context.insert(run)
                     try? context.save()
+                    activeRun = run
                 }
                 Button("Edit") { showingEdit = true }
             }
         }
         .sheet(isPresented: $showingEdit) {
             NavigationStack { TemplateEditorView(template: template) }
+        }
+        .sheet(item: $activeRun) { run in
+            NavigationStack { RunChecklistView(existingRun: run) }
         }
     }
 }

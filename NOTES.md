@@ -10,3 +10,4 @@
 - Address SwiftData warning (ModelContext sendable) by limiting seeding to main actor context.
 - Polish empty states and haptics, add more sample templates.
 
+

@@ -9,9 +9,9 @@ struct RootTabView: View {
                     Label("Home", systemImage: "checklist")
                 }
 
-            RunsHistoryView()
+            StatsView()
                 .tabItem {
-                    Label("History", systemImage: "clock")
+                    Label("Stats", systemImage: "chart.bar.fill")
                 }
 
             SettingsView()
